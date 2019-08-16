@@ -7,12 +7,18 @@ const PORT = process.env.port || 5000
 const app = express()
 const db = require('./config/database')
 
+// Handlebars setup
+app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' })) 
+app.set('view engine', 'handlebars')
+
+app.use(express.static(path.join(__dirname, 'public')))
+
 // Test DB
 db.authenticate()
   .then(() => console.log('database connected!!!'))
   .catch(err => console.log('ERROR: ' + err))
 
-app.get('/', (req, res) => res.send('inDEX!'))
+app.get('/', (req, res) => res.render('index', { layout: 'landing' }))
 
 app.use('/gigs', require('./routes/gigs'))
 
