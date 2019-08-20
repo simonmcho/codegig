@@ -7,7 +7,7 @@
 ## How to get started
 - Run `npm install` or `yarn install`
 - Ensure your MYSQL is running. Run `mysql.server start` if on mac terminal
-- Run `npm run dev` or `yarn dev`
+- Run `npm run dev` or `yarn dev`. Navigate to `localhost:5000` on your browser
 
 ### The application
 - The application allows the user to search, add, view programmer gigs. This app uses `Sequelize` to run the queries for you in NodeJS. 
